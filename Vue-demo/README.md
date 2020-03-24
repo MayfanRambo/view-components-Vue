@@ -1,21 +1,15 @@
-# vuex
+# Vue独立渲染组件
 
-> A Vue.js project
+> 每个组件都是一个独立的渲染视图
 
-## Build Setup
+## 使用及说明
 
 ``` bash
-# install dependencies
-npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+1.直接复制单个要使用的组件便可
 
-# build for production with minification
-npm run build
+2.结构样式随意修改，可扩展性强
 
-# build for production and view the bundle analyzer report
-npm run build --report
+3.某些组件可能会嵌套路径地址(使用时要注意)
+
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
