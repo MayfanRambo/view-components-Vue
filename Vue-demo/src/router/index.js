@@ -9,11 +9,18 @@ export default new Router({
     {
       path: '/',
       component: HelloWorld,
-      children:[{
-        path:'/',
-        name:"stars",
-        component:()=>import('@/components/demo/stars-in-the-sky.vue')
-      }]
+      children:[
+        {
+          path:'/stars',
+          name:"stars",
+          component:require('@/components/demo/stars-in-the-sky.vue').default
+        },
+        {
+          path:'/login',
+          name:"login",
+          component:require('@/components/demo/login.vue').default
+        }
+      ]
     },
   ]
 })

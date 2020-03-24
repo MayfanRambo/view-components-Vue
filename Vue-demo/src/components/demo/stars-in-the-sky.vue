@@ -12,18 +12,9 @@ export default {
     return {
       starsCount: 1000, //星星数量
       distance: 800, //间距
-      screenHeight:document.documentElement.clientHeight || document.body.clientHeight,
-      timer: false
     };
   },
   mounted() {
-    this.$refs.sky.style.height = this.screenHeight + "px";
-    window.onresize = () => {//监听尺寸
-      return (() => {
-        window.screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
-        this.screenHeight = window.screenHeight;
-      })();
-    };
     const starArr = this.$refs.star;
     starArr.forEach(item => {
       const speed = 0.2 + Math.random() * 1;
@@ -32,18 +23,6 @@ export default {
       item.style.transform = `translate3d(0,0,-${thisDistance}px) rotateY(${Math.random() * 360}deg) rotateX(${Math.random() * -50}deg) scale(${speed},${speed})`;
     });
   },
-  watch: {
-    screenHeight(val) {
-      if (!this.timer) {
-        this.screenHeight = val;
-        this.timer = true;
-        setTimeout(()=>{
-          this.$refs.sky.style.height = this.screenHeight + "px";
-          this.timer = false;
-        }, 200);
-      }
-    }
-  }
 };
 </script>
 <style lang="less" scoped>
@@ -64,6 +43,8 @@ export default {
   }
 }
 .sky {
+  width: 100%;
+  height: 100vh;
   position: relative;
   background: radial-gradient(
     220% 105% at top center,
@@ -72,6 +53,7 @@ export default {
     #e96f92 65%,
     #c5c5b4
   );
+  transition: 0.4s;
   background-attachment: fixed;
   overflow: hidden;
 }
