@@ -1,9 +1,9 @@
 <template>
   <div class="box">
-    <div class="show-login-btn" @click="showLogin">Show Login Button</div>
+    <div class="show-login-btn" @click="$refs.login.style.left = '0'">Show Login Button</div>
 
     <div class="login" ref="login">
-      <div class="hide-login-btn" @click="hideLogin">×</div>
+      <div class="hide-login-btn" @click="$refs.login.style.left = '-100%'">×</div>
       <div class="login-box">
         <h1>Welcome</h1>
         <input class="txtb" type="text" v-model="username" placeholder="Username" />
@@ -23,22 +23,14 @@ export default {
   },
   methods: {
     onSubmit() {},
-    showLogin() {
-      this.$refs.login.style.left = "0";
-    },
-    hideLogin() {
-      this.$refs.login.style.left = "-100%";
-    }
   }
 };
 </script>
 <style lang="less" scoped>
-* {
-  font-family: "montserrat", sans-serif;
-}
 .box {
   width: 100%;
   height: 100vh;
+  font-family: "montserrat", sans-serif;
   background: linear-gradient(#333);
   transition: 0.4s;
   .login {
