@@ -19,6 +19,11 @@ export default new Router({
           path:'/login',
           name:"login",
           component:require('@/components/demo/login.vue').default
+        },
+        {
+          path:'/box',
+          name:"fluorescenceBox",
+          component:require('@/components/demo/fluorescence-box.vue').default
         }
       ]
     },
